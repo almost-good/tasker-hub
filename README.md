@@ -124,6 +124,52 @@ Site user is an individual who values productivity, creativity, and collaboratio
 
 ## Data Model
 
+Entity Relationship Diagram (ERD) is created using [Database Diagram Tool](https://databasediagram.com/) to represent data models visually.
+
+<details>
+
+ <summary>Code used to create a model</summary>
+
+```
+User
+-
+user_id Int PK
+username Char(20)
+email Char(50)
+password Char(50)
+
+
+Task
+-
+task_id Int PK
+author Int FK > User.user_id
+name Char(200)
+is_completed Boolean
+image Cloudinary
+date_updated DateTime
+likes Int
+
+Subtask
+-
+subtask_id Int PK
+task Int FK > Task.task_id
+title Char(200)
+note Text
+is_completed Boolean
+```
+</details><br>
+
+![Entity Relationship Diagram ](docs/img/erd.png)
+
+The database design for this project consists of the following models:
+
+- **User** <br>
+Represents the individual user. Sensitive information needed to succesfully access the account is stored here.
+- **Task** <br>
+Represents the individual task. Single Task is constructed from one or multiple subtasks and contains Foreign Key "author" effectively connecting User to Task. 
+- **Subtask** <br>
+Represents the individual subtask and contains all information needed to log a single subtask into a Task through "task" Foreign Key.
+
 
 ## Testing
 
