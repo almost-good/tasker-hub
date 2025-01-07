@@ -14,7 +14,19 @@ Tasker Hub transforms ideas into action, fostering collaboration and innovation.
 - [Tasker Hub](#tasker-hub)
   * [User Experience (UX)](#user-experience-ux)
     + [User Stories](#user-stories)
-
+    + [Design](#design)
+      - [Colour Scheme](#colour-scheme)
+      - [Imagery](#imagery)
+      - [Fonts](#fonts)
+      - [Wireframes](#wireframes)
+  * [Data Model](#data-model)
+  * [Testing](#testing)
+  * [Features](#features)
+  * [Deployment](#deployment)
+  * [Technologies Used](#technologies-used)
+  * [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
+  * [Credits](#credits)
+  * [Acknowledgments](#acknowledgments)
 
 ## User Experience (UX)
 
@@ -55,4 +67,37 @@ Site user is an individual who values productivity, creativity, and collaboratio
 
 - Site Administration
     - As a Superuser I can create, read, update and delete both tasks and users so that I can manage the site.
+
+
+### Design
+
+
+#### Colour Scheme
+
+#### Imagery
+
+#### Fonts
+
+#### Wireframes
+
+
+## Data Model
+
+
+## Testing
+
+
+## Features
+
+
+## Deployment
+
+
+## Technologies Used
+
+
+## Credits
+
+
+## Acknowledgments
 
