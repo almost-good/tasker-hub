@@ -79,7 +79,48 @@ Site user is an individual who values productivity, creativity, and collaboratio
 #### Fonts
 
 #### Wireframes
+<details>
 
+ <summary>Landing Page</summary>
+
+![Landing Page](docs/wireframes/landing_page.png)
+</details>
+<details>
+
+ <summary>Browse Tasks</summary>
+
+![Browse Tasks](docs/wireframes//browse_tasks.png)
+</details>
+<details>
+
+ <summary>View Task</summary>
+
+![View Task](docs/wireframes/view_task.png)
+</details>
+<details>
+
+ <summary>Your Tasks</summary>
+
+![Your Tasks](docs/wireframes/your_tasks.png)
+</details>
+<details>
+
+ <summary>Add a New Task</summary>
+
+![Add a New Task](docs/wireframes/add_new_task.png)
+</details>
+<details>
+
+ <summary>Register</summary>
+
+![Register](docs/wireframes/register.png)
+</details>
+<details>
+
+ <summary>Log In</summary>
+
+![Log In](docs/wireframes/log_in.png)
+</details>
 
 ## Data Model
 
