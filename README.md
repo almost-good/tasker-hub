@@ -1,5 +1,6 @@
 # Tasker Hub
 
+
 Tasker Hub is platform designed for creativity, collaboration, and productivity.
 
 Tasker Hub simplifies the process of exploring, creating, and sharing tasks within a vibrant community. With a clear purpose, mobile-friendly design, and intuitive navigation, it provides a seamless and user-friendly experience.
@@ -10,6 +11,7 @@ Tasker Hub transforms ideas into action, fostering collaboration and innovation.
 
 
 ## Table of Contents
+
 
 - [Tasker Hub](#tasker-hub)
   * [User Experience (UX)](#user-experience-ux)
@@ -24,18 +26,23 @@ Tasker Hub transforms ideas into action, fostering collaboration and innovation.
   * [Features](#features)
   * [Deployment](#deployment)
   * [Technologies Used](#technologies-used)
+    + [Tools](#tools)
   * [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
   * [Credits](#credits)
   * [Acknowledgments](#acknowledgments)
 
+
 ## User Experience (UX)
+
 
 Site user is an individual who values productivity, creativity, and collaboration, such as but not limited to task planners, project managers, and idea enthusiasts. 
 
 
 ### User Stories
 
+
 #### Planned User Stories
+
 - User Navigation
     - As a Site User I can:
         - see what the site is about so I can gain understanding of where I landed.
@@ -79,6 +86,7 @@ Site user is an individual who values productivity, creativity, and collaboratio
 #### Fonts
 
 #### Wireframes
+
 <details>
 
  <summary>Landing Page</summary>
@@ -122,7 +130,9 @@ Site user is an individual who values productivity, creativity, and collaboratio
 ![Log In](docs/wireframes/log_in.png)
 </details>
 
+
 ## Data Model
+
 
 Entity Relationship Diagram (ERD) is created using [Database Diagram Tool](https://databasediagram.com/) to represent data models visually.
 
@@ -182,6 +192,14 @@ Represents the individual subtask and contains all information needed to log a s
 
 ## Technologies Used
 
+
+### Tools
+
+- [Git](https://git-scm.com/) - Version control.
+- [GitHub](https://github.com/) - Cloud-based hosting service.
+- [VS Code](https://code.visualstudio.com/) - Source code editor.
+- [Pencil](https://pencil.evolus.vn/) - Wireframes.
+- [DateBase Diagram](https://databasediagram.com/) - Entity relationship diagram.
 
 ## Credits
 
