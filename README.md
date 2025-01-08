@@ -16,6 +16,8 @@ Tasker Hub transforms ideas into action, fostering collaboration and innovation.
 - [Tasker Hub](#tasker-hub)
   * [User Experience (UX)](#user-experience-ux)
     + [User Stories](#user-stories)
+      - [Planned User Stories](#agile-methodology)
+      - [Agile Methodology](#agile-methodology)
     + [Design](#design)
       - [Colour Scheme](#colour-scheme)
       - [Imagery](#imagery)
@@ -74,6 +76,21 @@ Site user is an individual who values productivity, creativity, and collaboratio
 
 - Site Administration
     - As a Superuser I can create, read, update and delete both tasks and users so that I can manage the site.
+
+#### Agile Methodology
+
+The project follows an Agile methodology, emphasizing a flexible and iterative approach to design and development.
+
+GitHub Issues and Projects serve as the primary management tools. The project is divided into Epics, which represent larger, interconnected areas of the site. Each Epic is further broken down into User Stories, which are smaller, actionable tasks. These User Stories include detailed Acceptance Criteria—micro-steps that define the conditions for successful completion.
+
+An up-to-date overview of the entire project is available on the [Project Managment Board](https://github.com/users/almost-good/projects/14).
+
+To prioritize User Stories, the **MoSCoW Prioritization Technique** was applied:
+
+- Must Have: Essential features guaranteed for delivery.
+- Should Have: Important features that add significant value but are not vital.
+- Could Have: Features with a minor impact if omitted.
+- Won’t Have: Features not prioritized for the current iteration.
 
 
 ### Design
