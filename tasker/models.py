@@ -9,7 +9,7 @@ class Task(models.Model):
     
     Fields:
     - name: The name of the task.
-    - author: The user who created the task.
+    - author: The User who created the task.
     - is_completed: A boolean indicating if the task is completed.
     - date_updated: The date and time when the task was last updated.
     - likes: The number of likes the task has received.
@@ -41,6 +41,18 @@ class Task(models.Model):
 
 
 class Subtask(models.Model):
+    '''
+    Stores a single subtask entry related to :model:`tasker.Task`.
+    
+    Fields:
+    - title: The title of the subtask.
+    - note: Additional information about the subtask.
+    - task: The Task to which the subtask belongs.
+    - is_completed: A boolean indicating if the subtask is completed.
+    
+    Methods:
+    - __str__: String representation of the model.
+    '''
     title = models.CharField(max_length=200)
     note = models.TextField(blank=True)
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
