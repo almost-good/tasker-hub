@@ -203,6 +203,13 @@ Represents the individual subtask and contains all information needed to log a s
 ## Testing
 
 
+### Bugs
+
+- Application Error
+  - Bug: The incorrect Procfile configuration prevented the webpage from being served, despite successful deployment.
+  - Fix: Used the command "heroku logs --tail --app tasker-hub" to inspect the Heroku log files, which helped identify and resolve the misconfiguration in the Procfile.
+
+
 ## Features
 
 
