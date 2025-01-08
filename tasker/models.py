@@ -35,7 +35,7 @@ class Task(models.Model):
         ]
         ordering = ['-date_updated']
     
-    # String representation of the model.
+    # String representation of Task model.
     def __str__(self):
         return f"TASK: {self.name} | {self.author}"
 
@@ -45,3 +45,7 @@ class Subtask(models.Model):
     note = models.TextField(blank=True)
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
     is_completed = models.BooleanField(default=False)
+    
+    # String representation of Subtask model.
+    def __str__(self):
+        return f"SUBTASK: {self.title} | {self.task}"
