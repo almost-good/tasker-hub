@@ -28,6 +28,8 @@ Tasker Hub transforms ideas into action, fostering collaboration and innovation.
   * [Features](#features)
   * [Deployment](#deployment)
   * [Technologies Used](#technologies-used)
+    + [Languages](#languages)
+    + [Frameworks, Libraries and Packages](#frameworks-libraries-and-packages)
     + [Tools](#tools)
   * [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
   * [Credits](#credits)
@@ -210,11 +212,23 @@ Represents the individual subtask and contains all information needed to log a s
 ## Technologies Used
 
 
+### Languages
+
+- [Python 3.12.16](https://www.python.org/)
+
+### Frameworks, Libraries and Packages
+
+- [Django 4.2.17](https://www.djangoproject.com/) - Main Python framework.
+- [Gunicorn 20.1.0](https://gunicorn.org/) - WSGI server.
+- [dj-database-url 2.3.0](https://pypi.org/project/dj-database-url/) - Utility to help load database into a dictionary from the DATABASE_URL environment variable.
+- [psycopg2 2.9.10](https://pypi.org/project/psycopg2/) - Driver for interacting with PostgreSQL databases using Python.
+
 ### Tools
 
 - [Git](https://git-scm.com/) - Version control.
 - [GitHub](https://github.com/) - Cloud-based hosting service.
 - [VS Code](https://code.visualstudio.com/) - Source code editor.
+- [PostgreSQL](https://www.postgresql.org/) - Open source database.
 - [Pencil](https://pencil.evolus.vn/) - Wireframes.
 - [DateBase Diagram](https://databasediagram.com/) - Entity relationship diagram.
 
