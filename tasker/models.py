@@ -9,7 +9,7 @@ class Task(models.Model):
         User, on_delete=models.CASCADE, related_name='tasker_tasks')
     is_completed = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
-    likes = models.IntegerField(default=0)
+    likes = models.PositiveIntegerField(default=0)
     
     class Meta:
         # Unique constraint to prevent multiple tasks with the same name per author.
@@ -18,3 +18,5 @@ class Task(models.Model):
                 fields=['name', 'author'], name='unique_task_name_per_author')
         ]
     
+    def __str__(self):
+        return f"TASK: {self.name} | {self.author}"
