@@ -10,3 +10,11 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
     likes = models.IntegerField(default=0)
+    
+    class Meta:
+        # Unique constraint to prevent multiple tasks with the same name per author.
+        constraints = [
+            models.UniqueConstraint(
+                fields=['name', 'author'], name='unique_task_name_per_author')
+        ]
+    
