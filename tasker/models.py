@@ -33,6 +33,7 @@ class Task(models.Model):
             models.UniqueConstraint(
                 fields=['name', 'author'], name='unique_task_name_per_author')
         ]
+        ordering = ['-date_updated']
     
     # String representation of the model.
     def __str__(self):
