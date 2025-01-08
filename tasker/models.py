@@ -38,3 +38,10 @@ class Task(models.Model):
     # String representation of the model.
     def __str__(self):
         return f"TASK: {self.name} | {self.author}"
+
+
+class Subtask(models.Model):
+    title = models.CharField(max_length=200)
+    note = models.TextField(blank=True)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
+    is_completed = models.BooleanField(default=False)
