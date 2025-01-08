@@ -20,5 +20,5 @@ from tasker.views import test_connection
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', test_connection),
+    path('tasker/', test_connection, name='tasker'),
 ]
