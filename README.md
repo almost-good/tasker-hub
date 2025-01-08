@@ -228,6 +228,7 @@ Represents the individual subtask and contains all information needed to log a s
 - [Git](https://git-scm.com/) - Version control.
 - [GitHub](https://github.com/) - Cloud-based hosting service.
 - [VS Code](https://code.visualstudio.com/) - Source code editor.
+- [Heroku](https://heroku.com/) - Cloud based platform for deployment.
 - [PostgreSQL](https://www.postgresql.org/) - Open source database.
 - [Pencil](https://pencil.evolus.vn/) - Wireframes.
 - [DateBase Diagram](https://databasediagram.com/) - Entity relationship diagram.
