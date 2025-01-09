@@ -4,7 +4,7 @@ from .models import Task, Subtask
 
 
 @admin.register(Task)
-class TaskAdmin(SummernoteModelAdmin):
+class TaskAdmin(admin.ModelAdmin):
     '''
     Registration for :model:`tasker.Task`.
     '''
@@ -16,7 +16,7 @@ class TaskAdmin(SummernoteModelAdmin):
 
 
 @admin.register(Subtask)
-class SubtaskAdmin(admin.ModelAdmin):
+class SubtaskAdmin(SummernoteModelAdmin):
     '''
     Registration for :model:`tasker.Subtask`.
     '''
