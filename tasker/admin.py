@@ -6,7 +6,7 @@ from .models import Task, Subtask
 @admin.register(Task)
 class TaskAdmin(SummernoteModelAdmin):
     '''
-    Model admin for :model:`tasker.Task`.
+    Registration for :model:`tasker.Task`.
     '''
     readonly_fields = ('slug',) 
     list_display = (
@@ -15,5 +15,14 @@ class TaskAdmin(SummernoteModelAdmin):
     search_fields = ['name', 'author__username', 'is_completed']
 
 
-# Model registration for: Subtask.
-admin.site.register(Subtask)
+@admin.register(Subtask)
+class SubtaskAdmin(admin.ModelAdmin):
+    '''
+    Registration for :model:`tasker.Subtask`.
+    '''
+    list_display = ('task', 'title', 'note', 'is_completed')
+    list_filter = ('is_completed',)
+    search_fields = ['task__name', 'title', 'is_completed']
+    summernote_fields = ('note',)
+
+
