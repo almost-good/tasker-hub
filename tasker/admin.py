@@ -7,6 +7,7 @@ from .models import Task, Subtask
 @admin.register(Task)
 class TaskAdmin(SummernoteModelAdmin):
     list_display = ('name',)
+    readonly_fields = ('slug',) 
 
 
 # Model registration for: Subtask.

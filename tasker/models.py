@@ -1,4 +1,6 @@
+from enum import unique
 from django.db import models
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 
 
@@ -15,17 +17,41 @@ class Task(models.Model):
     
     Constraints:
     - Unique task name per author.
+    - Unique task slug per author.
     
     Methods:
     - __str__: String representation of the model.
+    - save: Overriding the save method to automatically generate a slug for the task.
     '''
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=False, blank=True)
+    slug = models.SlugField(
+        max_length=200, unique=False, blank=True, editable=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='tasker_tasks')
     is_completed = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
     likes = models.PositiveIntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        '''
+        Overriding the save method to automatically generate a slug for the task.
+        '''
+        current_slug = slugify(self.name)
+        unique_slug = current_slug
+        num = 1
+        
+        # Check if a task with the same slug already exists, excluding the current task.
+        # If it does, append a number to the slug to make it unique.
+        while (
+            Task.objects.filter(slug=unique_slug, author=self.author)
+            .exclude(pk=self.pk)
+            .exists()
+            ):
+            unique_slug = f"{current_slug}-{num}"
+            num += 1
+        
+        self.slug = unique_slug
+        super().save(*args, **kwargs)
     
     class Meta:
         # Unique constraints to prevent:
@@ -39,8 +65,10 @@ class Task(models.Model):
         ]
         ordering = ['-date_updated']
     
-    # String representation of Task model.
     def __str__(self):
+        '''
+        String representation of Task model.
+        '''
         return f"TASK: {self.name} | {self.author}"
 
 
@@ -59,7 +87,8 @@ class Subtask(models.Model):
     '''
     title = models.CharField(max_length=200)
     note = models.TextField(blank=True)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
+    task = models.ForeignKey(
+        Task, on_delete=models.CASCADE, related_name='subtasks')
     is_completed = models.BooleanField(default=False)
     
     # String representation of Subtask model.
