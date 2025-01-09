@@ -6,7 +6,7 @@ from .models import Task, Subtask
 # Model registration for: Task.
 @admin.register(Task)
 class TaskAdmin(SummernoteModelAdmin):
-    list_display = ('title')
+    list_display = ('name',)
 
 
 # Model registration for: Subtask.

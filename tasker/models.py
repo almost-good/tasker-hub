@@ -20,6 +20,7 @@ class Task(models.Model):
     - __str__: String representation of the model.
     '''
     name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=False, blank=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='tasker_tasks')
     is_completed = models.BooleanField(default=False)
@@ -27,10 +28,14 @@ class Task(models.Model):
     likes = models.PositiveIntegerField(default=0)
     
     class Meta:
-        # Unique constraint to prevent multiple tasks with the same name per author.
+        # Unique constraints to prevent:
+        # - Multiple tasks with the same name from the same author.
+        # - Multiple tasks with the same slug from the same author.
         constraints = [
             models.UniqueConstraint(
-                fields=['name', 'author'], name='unique_task_name_per_author')
+                fields=['name', 'author'], name='unique_task_name_per_author'),
+            models.UniqueConstraint(
+                fields=['slug', 'author'], name='unique_task_slug_per_author')
         ]
         ordering = ['-date_updated']
     
