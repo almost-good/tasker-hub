@@ -1,6 +1,7 @@
 {% load static %}
 
 {% url 'home' as home_url %}
+{% url 'browse-tasks' as browse_tasks_url %}
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
     
 <body>
     <a href="{{ home_url }}">Home</a>
-    <a href="{% url 'browse-tasks' %}">Browse Tasks</a>
+    <a href="{{ browse_tasks_url }}">Browse Tasks</a>
     
     {% block content %}
     <!-- Content goes here -->

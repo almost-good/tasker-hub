@@ -10,5 +10,6 @@ class IndexView(generic.TemplateView):
 class BrowseTasksView(generic.ListView):
     model = Task
     template_name = 'tasker/browse-tasks.html'
+    context_object_name = 'task_list' 
     queryset = Task.objects.all()
 

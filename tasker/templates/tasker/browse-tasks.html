@@ -5,7 +5,13 @@
 
 <!-- index.html starts here -->
 
-<div>Test BROWSE TASKS Connection</div>
+
+{% for task in task_list %}
+
+<div><a href="#"><h2>{{ task.name }}</h2></a> </div>
+
+{% endfor %}
+
 
 <!-- index.html ends here -->
 
