@@ -229,6 +229,8 @@ Represents the individual subtask and contains all information needed to log a s
 - [Gunicorn 20.1.0](https://gunicorn.org/) - WSGI server.
 - [dj-database-url 2.3.0](https://pypi.org/project/dj-database-url/) - Utility to help load database into a dictionary from the DATABASE_URL environment variable.
 - [psycopg2 2.9.10](https://pypi.org/project/psycopg2/) - Driver for interacting with PostgreSQL databases using Python.
+- [django-summernote 0.8.20.0](https://github.com/lqez/django-summernote) - WYSIWYG text editor integrated into Django admin and forms for creating rich-text content.
+- [whitenoise 5.3.0](https://whitenoise.readthedocs.io/en/latest/) - Utility that allows web apps to serve its own static files.
 
 ### Tools
 
