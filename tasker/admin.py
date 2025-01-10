@@ -3,6 +3,20 @@ from django_summernote.admin import SummernoteModelAdmin
 from .models import Task, Subtask
 
 
+def customize_admin_page():
+    '''
+    Customize the Django admin page.
+    
+    Sets the site header and index title for the Django admin page.
+    '''
+    admin.site.site_header = "Tasker Hub Data Administration"
+    admin.site.index_title = "Tasker Hub Admin"
+    admin.site.site_title = "Data Administration"
+
+
+customize_admin_page()
+
+
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     '''
