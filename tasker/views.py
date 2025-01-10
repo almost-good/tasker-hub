@@ -6,5 +6,5 @@ from .models import Task
 
 class BrowseTasks(generic.ListView):
     model = Task
-    template_name = 'tasker/browse_tasks.html'
+    template_name = 'tasker/index.html'
     queryset = Task.objects.all()
