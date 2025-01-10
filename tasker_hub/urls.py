@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from tasker.views import test_connection
+
 
 urlpatterns = [
+    path('', include('tasker.urls'), name='tasker-urls'),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('tasker/', test_connection, name='tasker'),
 ]

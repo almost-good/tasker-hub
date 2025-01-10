@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views import generic
+from .models import Task
 
 
-
-def test_connection(request):
-    return HttpResponse('Connection successful!')
+class BrowseTasks(generic.ListView):
+    model = Task
+    template_name = 'tasker/browse_tasks.html'
+    queryset = Task.objects.all()
