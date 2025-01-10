@@ -20,8 +20,12 @@
 </head>
     
 <body>
-    <a href="{% url 'home' %}">Home</a>
+    <a href="{{ home_url }}">Home</a>
     <a href="{% url 'browse-tasks' %}">Browse Tasks</a>
+    
+    {% block content %}
+    <!-- Content goes here -->
+    {% endblock content %}
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
