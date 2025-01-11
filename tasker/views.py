@@ -21,7 +21,7 @@ def task_detail_view(request, username, slug):
     
     return render(
         request, 
-        'tasker/task_detail.html', 
+        'tasker/task-detail.html', 
         {'task': task}
         )
     

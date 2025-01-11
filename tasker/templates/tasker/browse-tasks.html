@@ -8,7 +8,7 @@
 
 {% for task in task_list %}
 
-<div><a href="#"><h2>{{ task.name }}</h2></a> </div>
+<div><a href="{% url 'task-detail' username=task.author.username slug=task.slug %}"><h2>{{ task.name }}</h2></a> </div>
 
 {% endfor %}
 
