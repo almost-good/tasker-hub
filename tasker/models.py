@@ -1,8 +1,9 @@
+from email.policy import default
 from django.db import models
 from django.db.models.query import QuerySet
 from django.utils.text import slugify
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 
 class Task(models.Model):
     '''
@@ -16,6 +17,8 @@ class Task(models.Model):
         A unique slug for the task.
     ``author``
         The author of the task.
+    ``task_image``
+        The image associated with the task.
     ``is_completed``
         A boolean indicating if the task is completed.
     ``date_updated``
@@ -43,6 +46,7 @@ class Task(models.Model):
         max_length=200, unique=False, blank=True, editable=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='tasker_tasks')
+    task_image = CloudinaryField('image', default='placeholder')
     is_completed = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
     likes = models.PositiveIntegerField(default=0)

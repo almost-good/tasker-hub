@@ -6,7 +6,15 @@
 
 <!-- index.html starts here -->
 
-<img src="{% static 'images/default_task_img.jpg' %}" class="scale" alt="placeholder" width="500" height="300">
+<div>
+    {% if 'placeholder' in task.task_image.url %}
+    <img src="{% static 'images/default_task_img.jpg' %}" class="scale" alt="placeholder image" width="500" height="300">
+    {% else %}
+    <img src="{{ task.task_image.url }}" class="scale" alt="image for '{{ task.name }}' task" width="500" height="300">
+    {% endif %}
+</div>
+
+
 <h1>{{ task.name }}</h1>
 <p>{{ task.is_completed }}</p>
 <p>{{ task.author }}</p>
