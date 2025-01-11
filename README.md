@@ -222,6 +222,8 @@ Represents the individual subtask and contains all information needed to log a s
 ### Languages
 
 - [Python 3.12.16](https://www.python.org/)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 
 ### Frameworks, Libraries and Packages
 
@@ -231,6 +233,8 @@ Represents the individual subtask and contains all information needed to log a s
 - [psycopg2 2.9.10](https://pypi.org/project/psycopg2/) - Driver for interacting with PostgreSQL databases using Python.
 - [django-summernote 0.8.20.0](https://github.com/lqez/django-summernote) - WYSIWYG text editor integrated into Django admin and forms for creating rich-text content.
 - [whitenoise 5.3.0](https://whitenoise.readthedocs.io/en/latest/) - Utility that allows web apps to serve its own static files.
+- [cloudinary 1.36.0](https://cloudinary.com/) - API for managing and serving images.
+- [Bootstrap5](https://getbootstrap.com/) - Frontend framework for responsive web development.
 
 ### Tools
 
@@ -239,8 +243,11 @@ Represents the individual subtask and contains all information needed to log a s
 - [VS Code](https://code.visualstudio.com/) - Source code editor.
 - [Heroku](https://heroku.com/) - Cloud based platform for deployment.
 - [PostgreSQL](https://www.postgresql.org/) - Open source database.
+- [Cloudinary](https://cloudinary.com/) - Cloud based image managment.
 - [Pencil](https://pencil.evolus.vn/) - Wireframes.
 - [DateBase Diagram](https://databasediagram.com/) - Entity relationship diagram.
+- [Pexels](https://www.pexels.com/) - Free stock photos.
+  - [Polina Zimmerman](https://www.pexels.com/photo/sticky-notes-on-board-3782235/) - Image used as default task image.
 
 ## Credits
 
