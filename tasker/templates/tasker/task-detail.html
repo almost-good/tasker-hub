@@ -11,7 +11,13 @@
 <p>{{ task.author }}</p>
 <p>{{ task.date_updated }}</p>
 
-
+<ul>
+    {% for subtask in subtasks %}
+        <li>{{ subtask.title }}</li>
+        <li>{{ subtask.note }}</li>
+        <li>{{ subtask.is_completed }}</li>
+    {% endfor %}
+</ul>
 
 <p>{{ task.likes }}</p>
 

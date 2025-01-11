@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Task
+from .models import Task, Subtask
 
 
 class IndexView(generic.TemplateView):
@@ -16,15 +16,17 @@ class BrowseTasksView(generic.ListView):
 
 def task_detail_view(request, username, slug):
     '''
-    Display the individual :model:`tasker.Task` with the given slug and author.
+    Display the individual model of :model:`tasker.Task` with the given slug.
     
-    **Context**
+    **Context:**
     
     ``task``
-        An instance of :model:`tasker.Task`.
+        The task with the given slug.
+    ``subtasks``
+        All the subtasks related to the task.
         
     **Template:**
-    
+
     :template:`tasker/task-detail.html`
     '''
     
@@ -32,9 +34,15 @@ def task_detail_view(request, username, slug):
     queryset = Task.objects.filter(author__username=username)
     task = get_object_or_404(queryset, slug=slug)
     
+    # Get all the subtasks related to the task.
+    subtasks = task.subtasks.all()
+    
     return render(
         request, 
         'tasker/task-detail.html', 
-        {'task': task}
-        )
+        {
+            'task': task, 
+            'subtasks': subtasks
+        }
+    )
     

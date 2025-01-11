@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.query import QuerySet
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 
@@ -21,6 +22,8 @@ class Task(models.Model):
         The date and time the task was last updated.
     ``likes``
         The number of likes the task has received.
+    ``subtasks``
+        QuerySet of :model:`tasker.Subtask` objects related to the task.
     
     **Constraints:**
     
@@ -43,6 +46,9 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
     likes = models.PositiveIntegerField(default=0)
+
+    # Tell linter that `subtasks` is a QuerySet of Subtask objects
+    subtasks: QuerySet["Subtask"]  
 
     def save(self, *args, **kwargs):
         '''
