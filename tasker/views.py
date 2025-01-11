@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Task
 
@@ -13,3 +13,15 @@ class BrowseTasksView(generic.ListView):
     context_object_name = 'task_list' 
     queryset = Task.objects.all()
 
+
+def task_detail_view(request, username, slug):
+    # Get the task with the given slug and author.
+    queryset = Task.objects.filter(author__username=username)
+    task = get_object_or_404(queryset, slug=slug)
+    
+    return render(
+        request, 
+        'tasker/task_detail.html', 
+        {'task': task}
+        )
+    
