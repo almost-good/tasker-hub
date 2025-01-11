@@ -15,6 +15,19 @@ class BrowseTasksView(generic.ListView):
 
 
 def task_detail_view(request, username, slug):
+    '''
+    Display the individual :model:`tasker.Task` with the given slug and author.
+    
+    **Context**
+    
+    ``task``
+        An instance of :model:`tasker.Task`.
+        
+    **Template:**
+    
+    :template:`tasker/task-detail.html`
+    '''
+    
     # Get the task with the given slug and author.
     queryset = Task.objects.filter(author__username=username)
     task = get_object_or_404(queryset, slug=slug)
