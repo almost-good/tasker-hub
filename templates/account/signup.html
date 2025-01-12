@@ -11,36 +11,38 @@
 <!-- signup.html starts here -->
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <h3>{% trans "Sign UP" %}</h3>
-      {% blocktrans %}
-      <h4>Welcome to the Tasker HUB</h4>
-      <p>
-        Be part of the action – together, we make it happen!
-      </p>
-      <p>
-        Already have an account? ->
-        <a class="link" href="{{ login_url }}">Sign IN</a>
-      </p>
-      {% endblocktrans %}
+<div class="container signup px-3 py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2 text-center">
+        <h2 class="mb-2 highlight-text-pink">{% trans "Sign UP" %}</h2>
+        {% blocktrans %}
+        <p class="mt-4 pt-3">
+          Be part of the action – together, we make it happen!
+        </p>
+        <p class="lead italic">
+          Already have an account? <spanp class="small"> >></span>
+          <a class="btn btn-primary btn-sm py-1 px-4 button bold" href="{{ login_url }}">SIGN IN</a>
+        </p>
+        {% endblocktrans %}
+      </div>
     </div>
   </div>
-  
   <!-- Signup form -->
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-      <form class="signup" id="signup_form" method="post" action="{{ signup_url }}">
-        {% csrf_token %}
-        {{ form|crispy }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}"
-          value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button class="btn btn-signup right" type="submit">
-          {% trans "Sign Up" %}</button>
-      </form>
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col-md-8 mt-3 offset-md-2 mb-2">
+        <form class="signup" id="signup_form" method="post" action="{{ signup_url }}">
+          {% csrf_token %}
+          {{ form|crispy }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="btn btn-primary btn-lg py-1 px-4 button bold" type="submit">
+            {% trans "Sign Up" %}</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
