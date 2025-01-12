@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 	'allauth',
 	'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
     'tasker',
@@ -57,6 +59,10 @@ SITE_ID = 1
 # REDITECT URL for login and logout.
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Template packs for Crispy Forms.
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
