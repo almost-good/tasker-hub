@@ -6,7 +6,7 @@
     --nav-bg-color: #09353E;
     --border-color: #0e6b88;
     --text-color: #f0f8fa;
-    --link-color: #9aa1a3;
+    --text-color-muted: #9aa1a3;
     --highlight-pink: #b43945;
     --highlight-yellow: #cfcd59;
 }
@@ -18,41 +18,93 @@
 }
 
 html {
-    min-height: 100vh;
+    height: 100%;
 }
 
 body {
-    margin-top: 80px;
     background-color: var(--general-bg-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* COLORS */
+
+
+.nav-bg {
+    background-color: var(--nav-bg-color);
+}
+
+.brand,
+.brand:hover {
+    color: var(--text-color);
+}
+
+.nav-link,
+.muted-text {
+    color: var(--text-color-muted);
+}
+
+.hover-highlight:hover {
+    color: var(--highlight-yellow);
+}
+
+
+/* BORDERS & SHADOWS */
+
+
+.navbar-toggler {
+    border: none;
+}
+
+.top-border {
+    border-top: 1px solid var(--border-color);
+}
+
+.bottom-border {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand-shadow {
+    text-shadow: 10px 2px 2px var(--highlight-pink);
+}
+
+
+/* TEXT */
+
+
+.bold {
+    font-weight: bold;
+}
+
+.italic{
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.brand,
+.footer-social {
+    font-size: 2rem;
+}
+
+.nav-link,
+.footer-copyright {
+    font-size: 1.2rem;
+}
+
+.brand-shadow {
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    letter-spacing: 1px;
 }
 
 
 /* NAVBAR & FOOTER */
 
-
-.navbar {
-    background-color: var(--nav-bg-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.navbar-brand {
-    color: var(--text-color);
-    font-size: 2rem;
-}
-
-.navbar-brand:hover {
-    color: var(--text-color);
-}
-
-.navbar-brand .brand-highlight {
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 10px 2px 2px var(--highlight-pink);
-}
-
-.navbar-toggler {
-    border: none;
-}
 
 .navbar-toggler:focus {
     outline: none !important;
@@ -63,17 +115,23 @@ body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(240, 248, 250, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.navbar-nav .nav-link {
-    color: var(--link-color);
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
-
-.navbar-nav .nav-link:hover {
-    color: var(--highlight-yellow);
-}
-
 .navbar-nav .active{
     color: var(--highlight-yellow) !important;
-    font-weight: bold;
 }
+
+.footer-social {
+    padding: 20px;
+
+}
+
+.footer-social a {
+    margin: 0 4vw;
+}
+
+
+/* MAIN CONTENT */
+
+.main-content {
+    margin-top: 80px;
+}
+
