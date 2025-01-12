@@ -24,6 +24,38 @@
 </head>
     
 <body>
+    
+    <!-- NAVIGATION START -->
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="{{ home_url }}">Tasker <span class="brand-highlight">HUB</span></a>
+                <!-- Toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar elements -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto text-end">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" href="{{ home_url }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{{ signup_url }}">SIGNUP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}" href="{{ home_url }}">LOGIN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- NAVIGATION END -->
+
+    <!--
     <a href="{{ home_url }}">Home</a>
     <a href="{{ browse_tasks_url }}">Browse Tasks</a>
     
@@ -32,7 +64,7 @@
     {% else %}
     <a href="{% url 'account_signup' %}">Register</a>
     <a href="{% url 'account_login' %}">Login</a>
-    {% endif %}
+    {% endif %}-->
     
     {% block content %}
     <!-- Content goes here -->
