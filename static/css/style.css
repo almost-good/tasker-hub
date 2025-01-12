@@ -172,3 +172,21 @@ a {
     border: 1px solid var(--border-color);
     border-radius: 2px;
 }
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2,
+    .brand {
+        font-size: 1.5rem;
+    }
+}
