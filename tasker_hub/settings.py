@@ -64,6 +64,11 @@ LOGOUT_REDIRECT_URL = '/'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+ACCOUNT_FORMS = {
+    'signup': 'tasker.forms.CustomSignupForm', 
+}
+#ACCOUNT_SIGNUP_FORM_CLASS = 'tasker.forms.CustomSignupForm'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
