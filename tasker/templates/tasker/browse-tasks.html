@@ -74,11 +74,11 @@
                     <p class="top-border px-4 d-inline-flex align-items-center">
                         {% if task.likes %}
                         <span>
-                            <i class="fa-solid fa-heart card-likes-icon pt-3"></i>
+                            <i class="fa-solid fa-heart card-likes-icon {% if user.username == task.author.username %}card-likes-icon-muted{% else %}card-likes-icon-highlight{% endif %} pt-3"></i>
                         </span>
                         {% else %}
                         <span>
-                            <i class="fa-regular fa-heart card-likes-icon pt-3"></i>
+                            <i class="fa-regular fa-heart card-likes-icon {% if user.username == task.author.username %}card-likes-icon-muted{% else %}card-likes-icon-highlight{% endif %} pt-3"></i>
                         </span>
                         {% endif %}
                         <span class="ms-2 card-likes pt-3">{{ task.likes }}</span>

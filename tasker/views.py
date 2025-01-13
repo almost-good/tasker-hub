@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Task, Subtask
 
 
@@ -7,7 +8,7 @@ class IndexView(generic.TemplateView):
     template_name = 'tasker/index.html'
     
 
-class BrowseTasksView(generic.ListView):
+class BrowseTasksView(LoginRequiredMixin, generic.ListView):
     model = Task
     template_name = 'tasker/browse-tasks.html'
     context_object_name = 'task_list' 

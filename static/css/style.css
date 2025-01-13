@@ -289,13 +289,21 @@ a {
 
 .card-likes-icon {
     font-size: 2rem;
-    color: var(--highlight-pink);
+    /*color: var(--highlight-pink);*/
     text-shadow: 0px 0px 5px var(--text-color-muted);
 }
 
-.card-likes-icon:hover {
+.card-likes-icon-highlight {
+    color: var(--highlight-pink);
+}
+
+.card-likes-icon-highlight:hover {
     color: var(--highlight-yellow);
     cursor: pointer;
+}
+
+.card-likes-icon-muted {
+    color: var(--text-color-muted);
 }
 
 .card-likes {
