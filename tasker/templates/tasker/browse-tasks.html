@@ -79,21 +79,30 @@
     </div>
 </div>
 <!-- TASKER CARDS END -->
+
+
+<!-- PAGINATION START -->
 {% if is_paginated %}
-<nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
+<nav class="pb-5" aria-label="Page navigation">
+    <ul class="pagination d-flex justify-content-center align-items-center">
         {% if page_obj.has_previous %}
-        <li>
-            <a href="?page={{ page_obj.previous_page_number }}"
-            class="page-link">&laquo; PREV</a>
+        <li class="px-2">
+            <a class="btn btn-primary btn-lg py-1 px-4 button bold" href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-backward"></i></a>
         </li>
         {% endif %}
+        <li class="px-2 muted-text">
+            <span>{{ page_obj.number }}</span>
+        </li>
         {% if page_obj.has_next %}
-        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        <li class="px-2">
+            <a class="btn btn-primary btn-lg py-1 px-4 button bold" href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-forward"></i></a>
+        </li>
         {% endif %}
     </ul>
 </nav>
 {% endif %}
+<!-- PAGINATION END -->
+
 
 <!-- index.html ends here -->
 

@@ -12,6 +12,7 @@ class BrowseTasksView(generic.ListView):
     template_name = 'tasker/browse-tasks.html'
     context_object_name = 'task_list' 
     queryset = Task.objects.all()
+    paginate_by = 6
 
 
 def task_detail_view(request, username, slug):
