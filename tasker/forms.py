@@ -72,3 +72,4 @@ class CustomSignupForm(SignupForm):
             raise ValidationError("Email already taken.")
         
         return email
+

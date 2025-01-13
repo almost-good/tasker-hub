@@ -65,7 +65,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 ACCOUNT_FORMS = {
-    'signup': 'tasker.forms.CustomSignupForm', 
+    'signup': 'tasker.forms.CustomSignupForm',
 }
 #ACCOUNT_SIGNUP_FORM_CLASS = 'tasker.forms.CustomSignupForm'
 
