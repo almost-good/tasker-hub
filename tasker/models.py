@@ -40,7 +40,7 @@ class Task(models.Model):
         String representation of the model.
     '''
     
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     slug = models.SlugField(
         max_length=200, unique=False, blank=True, editable=False)
     author = models.ForeignKey(

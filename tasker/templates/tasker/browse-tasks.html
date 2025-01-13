@@ -1,17 +1,99 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block content %}
 
 <!-- index.html starts here -->
 
 
-{% for task in task_list %}
+<!-- INTRO START -->
+<div class="container px-3 py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="my-3 mb-2 text-center highlight-text-pink">Browse Tasks</h1>
+        </div>
+    </div>
+    <hr class="top-border">
+    <br>
+</div>
+<!-- INTRO END -->
 
-<div><a href="{% url 'task-detail' username=task.author.username slug=task.slug %}"><h2>{{ task.name }}</h2></a> </div>
 
-{% endfor %}
-
+<!-- TASKER CARDS START -->
+<div class="container px-3 pb-5">
+    <div class="row">
+        {% for task in task_list %}
+        <div class="col-sm-6 col-md-4 px-1 d-flex align-items-stretch h-100">
+            <div class="card card-custom mb-3 shadow-lg mx-2">
+                <!-- Card image -->
+                <div class="position-relative">
+                    {% if "placeholder" in task.task_image.url %}
+                    <img src="{% static 'images/default_task_img.jpg' %}"
+                        class="card-img" alt="placeholder image">
+                    {% else %}
+                    <img src=" {{ task.task_image.url }}" alt="tasker image" class="card-img">
+                    {% endif %}
+                    <!-- Card checkmark -->
+                    <div class="position-absolute card-checkmark text-white">
+                        {% if task.is_completed %}
+                        <span><i class="fa-solid fa-check-double pr-2 checkmark"></i></span>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- Card content -->
+                <div class="card-body pb-0">
+                    <h3 class="card-title text-truncate text-center pb-3">
+                        {{ task.name }}
+                    </h2>
+                    <!-- Card text -->
+                    <div class="card-text pt-2 lead">
+                        <p>
+                            <span><i class="fa-solid fa-user px-2 card-icon"></i></span>
+                            <span>{{ task.author.username }}</span>
+                            <br>
+                            <span><i class="fa-solid fa-calendar-days px-2 card-icon"></i></span>
+                            <span>{{ task.date_updated }}</span>
+                            <br>
+                            <span><i class="fa-solid fa-list-check px-2 card-icon"></i></span>
+                            <span>{{ task.subtasks.all|length }}</span>
+                        </p>
+                    </div>
+                </div>
+                <a href="{% url 'task-detail' username=task.author.username slug=task.slug %}" 
+                    class="stretched-link" aria-label="recipe-detail"></a>
+                <!-- Card footer -->
+                <div class="card-footer text-center">
+                    <p class="top-border px-4 d-inline-flex align-items-center">
+                        {% if task.likes %}
+                        <span><i class="fa-solid fa-heart card-likes-icon pt-3"></i></span>
+                        {% else %}
+                        <span><i class="fa-regular fa-heart card-likes-icon pt-3"></i></span>
+                        {% endif %}
+                                            
+                        <span class="ms-2 card-likes pt-3">{{ task.likes }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- TASKER CARDS END -->
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}"
+            class="page-link">&laquo; PREV</a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 
 <!-- index.html ends here -->
 

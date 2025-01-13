@@ -2,13 +2,18 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 
+
 {% block title %}{% trans "Logout" %}{% endblock %}
+
 
 {% block content %}
 
 <!-- logout.html starts here -->
 
+
+<!-- LOG OUT START -->
 <div class="container logging px-3 py-5">
+  <!-- Logout intro -->
   <div class="container">
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2 text-center">
@@ -19,6 +24,7 @@
       </div>
     </div>
   </div>
+  <!-- Logout form -->
   <div class="container pt-3">
     <div class="row">
       <div class="col-md-8 mt-3 offset-md-2 mb-2 d-flex justify-content-center gap-2 flex-wrap ">
@@ -37,6 +43,9 @@
     </div>
   </div>
 </div>
+<!-- LOG OUT END -->
+
+
 <!-- logout.html end here -->
 
 {% endblock %}
