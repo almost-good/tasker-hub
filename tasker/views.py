@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Task, Subtask
+from .models import Task, Subtask, User
 
 
 class IndexView(generic.TemplateView):
@@ -20,8 +20,10 @@ class YourTasksView(LoginRequiredMixin, generic.ListView):
     model = Task
     template_name = 'tasker/your-tasks.html'
     context_object_name = 'your_task_list' 
-    queryset = Task.objects.all()
     paginate_by = 6
+    
+    def get_queryset(self):
+        return Task.objects.filter(author=self.request.user)
 
 
 def task_detail_view(request, username, slug):

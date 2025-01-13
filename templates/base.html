@@ -63,7 +63,7 @@
                                 aria-current="page{% endif %}" href="{{ browse_tasks_url }}">Browse</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link hover-highlight {% if request.path == home_url %}active bold" 
+                            <a class="nav-link hover-highlight {% if request.path == your_tasks_url %}active bold" 
                                 aria-current="page{% endif %}" href="{{ your_tasks_url }}">Tasker</a>
                         </li>
                         <li class="nav-item">
@@ -97,7 +97,10 @@
     </div>
     <!-- CONTENT END -->
 
+    
 
+
+    
     <!-- FOOTER START -->
     <footer class="footer-social mt-auto text-center nav-bg top-border muted-text">
         <div class="container footer-container">

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- index.html starts here -->
+
+
+<!-- INTRO START -->
+<div class="container px-3 py-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="my-3 mb-2 text-center highlight-text-pink">Your Tasks</h1>
+        </div>
+    </div>
+    <hr class="top-border">
+    <br>
+</div>
+<!-- INTRO END -->
+
+
+<!-- TASKER CARDS START -->
+<div class="container px-3 pb-5">
+    <div class="row">
+        {% for task in your_task_list %}
+        {% include "tasker-list.html" %}
+        {% endfor %}
+    </div>
+</div>
+<!-- TASKER CARDS END -->
+
+
+<!-- PAGINATION START -->
+{% include "paginate.html" %}
+<!-- PAGINATION END -->
+
+
+<!-- index.html ends here -->
+
+{% endblock content %}
