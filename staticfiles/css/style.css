@@ -5,11 +5,14 @@
 :root {
     --general-bg-color: #0d404b;
     --nav-bg-color: #09353E;
-    --border-color: #0e6b88;
+    --card-bg-color: #124e5c;
+    --border-color: #1c689b;
     --text-color: #f0f8fa;
     --text-color-muted: #9aa1a3;
     --highlight-pink: #b43945;
     --highlight-yellow: #cfcd59;
+    --checkmark-green: #3ea316ee;
+    --checkmark-green-border: #7ece5f;
     
     --font-text: "Open Sans", Tahoma, sans-serif;
     --font-highlight: "Montserrat", Tahoma, sans-serif;
@@ -64,10 +67,11 @@ body {
 
 .top-border {
     border-top: 1px solid var(--border-color);
+    opacity: 1;
 }
 
 .bottom-border {
-    border-bottom: 5px solid yellow;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .brand-shadow {
@@ -187,8 +191,8 @@ a {
 
 /* INDEX */
 
-.hero-img{
-    border: 1px solid var(--border-color);
+.hero-img {
+    border: 2px solid var(--border-color);
     border-radius: 2px;
 }
 
@@ -216,6 +220,88 @@ a {
     border: none;
     outline: none;
     box-shadow: none;
+}
+
+
+/* TASKER CARDS */
+
+.card-custom {
+    width: 100%;
+    height: auto;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    color: var(--text-color);
+}
+
+.card-custom:hover {
+    box-shadow: 0px 0px 30px #1c689b !important;
+}
+
+.card-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    border-radius: 2px;
+    box-shadow:  0 10px 20px -5px var(--nav-bg-color);
+}
+
+.card-checkmark {
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.checkmark {
+    font-size: 2rem;
+    background-color: var(--checkmark-green);
+    padding: 10px;
+    border: 3px solid var(--checkmark-green-border);
+    border-radius: 50%;
+    box-shadow: 10px 1px 10px var(--nav-bg-color), 
+                -1px -1px 5px var(--checkmark-green);
+}
+
+
+.card-title {
+    font-size: 1.5rem;
+    font-family: var(--font-highlight);
+}
+
+.card-text {
+    font-family: var(--font-text);
+    font-size: 1rem;
+    color: var(--text-color-muted);
+    font-style: italic;
+}
+
+.card-icon {
+    color: var(--border-color);
+}
+
+.card-footer {
+    border: none;
+    /*border-top: 1px solid var(--border-color);*/
+    z-index:1;
+    background-color: var(--card-bg-color);
+}
+
+.card-likes-icon {
+    font-size: 2rem;
+    color: var(--highlight-pink);
+    text-shadow: 0px 0px 5px var(--text-color-muted);
+}
+
+.card-likes-icon:hover {
+    color: var(--highlight-yellow);
+    cursor: pointer;
+}
+
+.card-likes {
+    font-family: var(--font-highlight);
+    font-size: 1rem;
+    color: var(--text-color-muted);
 }
 
 

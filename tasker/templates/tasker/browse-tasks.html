@@ -36,7 +36,9 @@
                     <!-- Card checkmark -->
                     <div class="position-absolute card-checkmark text-white">
                         {% if task.is_completed %}
-                        <span><i class="fa-solid fa-check-double pr-2 checkmark"></i></span>
+                        <span>
+                            <i class="fa-solid fa-check-double pr-2 checkmark"></i>
+                        </span>
                         {% endif %}
                     </div>
                 </div>
@@ -48,13 +50,19 @@
                     <!-- Card text -->
                     <div class="card-text pt-2 lead">
                         <p>
-                            <span><i class="fa-solid fa-user px-2 card-icon"></i></span>
+                            <span>
+                                <i class="fa-solid fa-user px-2 card-icon"></i>
+                            </span>
                             <span>{{ task.author.username }}</span>
                             <br>
-                            <span><i class="fa-solid fa-calendar-days px-2 card-icon"></i></span>
+                            <span>
+                                <i class="fa-solid fa-calendar-days px-2 card-icon"></i>
+                            </span>
                             <span>{{ task.date_updated }}</span>
                             <br>
-                            <span><i class="fa-solid fa-list-check px-2 card-icon"></i></span>
+                            <span>
+                                <i class="fa-solid fa-list-check px-2 card-icon"></i>
+                            </span>
                             <span>{{ task.subtasks.all|length }}</span>
                         </p>
                     </div>
@@ -65,11 +73,14 @@
                 <div class="card-footer text-center">
                     <p class="top-border px-4 d-inline-flex align-items-center">
                         {% if task.likes %}
-                        <span><i class="fa-solid fa-heart card-likes-icon pt-3"></i></span>
+                        <span>
+                            <i class="fa-solid fa-heart card-likes-icon pt-3"></i>
+                        </span>
                         {% else %}
-                        <span><i class="fa-regular fa-heart card-likes-icon pt-3"></i></span>
+                        <span>
+                            <i class="fa-regular fa-heart card-likes-icon pt-3"></i>
+                        </span>
                         {% endif %}
-                                            
                         <span class="ms-2 card-likes pt-3">{{ task.likes }}</span>
                     </p>
                 </div>
@@ -87,7 +98,10 @@
     <ul class="pagination d-flex justify-content-center align-items-center">
         {% if page_obj.has_previous %}
         <li class="px-2">
-            <a class="btn btn-primary btn-lg py-1 px-4 button bold" href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-backward"></i></a>
+            <a class="btn btn-primary btn-lg py-1 px-4 button bold" 
+                href="?page={{ page_obj.previous_page_number }}">
+                <i class="fa-solid fa-backward"></i>
+            </a>
         </li>
         {% endif %}
         <li class="px-2 muted-text">
@@ -95,7 +109,10 @@
         </li>
         {% if page_obj.has_next %}
         <li class="px-2">
-            <a class="btn btn-primary btn-lg py-1 px-4 button bold" href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-forward"></i></a>
+            <a class="btn btn-primary btn-lg py-1 px-4 button bold" 
+                href="?page={{ page_obj.next_page_number }}">
+                <i class="fa-solid fa-forward"></i>
+            </a>
         </li>
         {% endif %}
     </ul>
