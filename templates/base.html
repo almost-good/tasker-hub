@@ -49,18 +49,34 @@
                 <!-- Navbar elements -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto text-end">
-                        <li class="nav-item hover-highlight">
+                        <li class="nav-item">
                             <a class="nav-link hover-highlight {% if request.path == home_url %}active bold" 
                                 aria-current="page{% endif %}" href="{{ home_url }}">Home</a>
                         </li>
+                        <!-- Check if user is logged in -->
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link hover-highlight {% if request.path == browse_tasks_url %}active bold" 
+                                aria-current="page{% endif %}" href="{{ browse_tasks_url }}">Browse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link hover-highlight {% if request.path == home_url %}active bold" 
+                                aria-current="page{% endif %}" href="{{ home_url }}">Tasker</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link hover-highlight {% if request.path == login_url %}active bold" 
+                                aria-current="page{% endif %}" href="{{ logout_url }}">Logout</a>
+                        </li>
+                        {% else %}
                         <li class="nav-item">
                             <a class="nav-link hover-highlight {% if request.path == signup_url %}active bold" 
                                 aria-current="page{% endif %}" href="{{ signup_url }}">SIGNUP</a>
                         </li>
-                        <li class="nav-item hover-highlight">
+                        <li class="nav-item">
                             <a class="nav-link hover-highlight {% if request.path == login_url %}active bold" 
                                 aria-current="page{% endif %}" href="{{ login_url }}">LOGIN</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
