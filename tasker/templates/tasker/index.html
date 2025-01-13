@@ -21,6 +21,18 @@
             <h1 class="mb-2">Your tasks 
                 <span class="highlight-text">SIMPLIFIED</span>
             </h1>
+            <!-- Check if user is logged in -->
+            {% if user.is_authenticated %}
+            <div class="lead italic mt-4">
+                Welcome back <span class="highlight-text-pink bold">{{ user.username }}</span>. 
+                Feeling productive?
+                <div class="mt-3"> 
+                    Head over to <span class="small muted-text px-1"> >></span>
+                    <a class="btn btn-primary btn-sm py-1 px-4 button bold" 
+                        href="{{ signup_url }}">Tasker</a>
+                </div>
+            </div>
+            {% else %}
             <div class="lead italic mt-4">
                 Join Tasker HUB today! 
                 <div class="mt-3">
@@ -28,6 +40,7 @@
                         href="{{ signup_url }}">SIGN UP</a>
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
