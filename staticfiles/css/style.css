@@ -1,3 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&family=Open+Sans:wght@100;300;500&family=Playfair+Display:wght@600&display=swap');
+
+/* GENERAL STYLING */
+
+:root {
+    --general-bg-color: #0d404b;
+    --nav-bg-color: #09353E;
+    --border-color: #0e6b88;
+    --text-color: #f0f8fa;
+    --text-color-muted: #9aa1a3;
+    --highlight-pink: #b43945;
+    --highlight-yellow: #cfcd59;
+    
+    --font-text: "Open Sans", Tahoma, sans-serif;
+    --font-highlight: "Montserrat", Tahoma, sans-serif;
+}
+
 * {
-    background-color: gray;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: var(--general-bg-color);
+    font-family: var(--font-text);
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+
+/* COLORS */
+
+.nav-bg {
+    background-color: var(--nav-bg-color);
+}
+
+.muted-text {
+    color: var(--text-color-muted);
+}
+
+
+.highlight-text {
+    font-family: var(--font-highlight);
+    color: var(--highlight-yellow);
+}
+
+.hover-highlight:hover{
+    color: var(--highlight-yellow);
+}
+
+.highlight-text-pink {
+    font-family: var(--font-highlight);
+    color: var(--highlight-yellow);
+    text-shadow: 5px 0px 10px var(--highlight-pink);
+}
+
+
+/* BORDERS & SHADOWS */
+
+.top-border {
+    border-top: 1px solid var(--border-color);
+}
+
+.bottom-border {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand-shadow {
+    text-shadow: 10px 2px 2px var(--highlight-pink);
+}
+
+
+/* TEXT */
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic{
+    font-weight: 100;
+    font-style: italic;
+}
+
+.small {
+    font-size: 1rem;
+}
+
+/* BUTTONS */
+
+.button {
+    background-color: var(--highlight-pink);
+    color: var(--text-color);
+    font-style: italic;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: var(--highlight-yellow);
+    border: 2px solid var(--border-color);
+}
+
+.button:active {
+    background-color: var(--general-bg-color) !important;
+    border: 2px solid var(--highlight-yellow) !important;
+}
+
+/* NAVBAR */
+
+.brand {
+    font-family: var(--font-highlight);
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.brand:hover {
+    color: var(--text-color);
+}
+
+.brand-shadow {
+    letter-spacing: 2px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(240, 248, 250, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-nav .active{
+    color: var(--highlight-yellow) !important;
+}
+
+.nav-link {
+    letter-spacing: 1px;
+    color: var(--text-color-muted);
+}
+
+
+/* FOOTER */
+
+.footer-social {
+    padding: 20px;
+    font-size: 2rem;
+}
+
+.footer-social a {
+    margin: 0 2vw;
+}
+
+.footer-copyright {
+    font-size: 1.2rem;
+}
+
+
+/* MAIN CONTENT */
+
+.main-content {
+    margin-top: 80px;
+}
+
+
+/* INDEX */
+
+.hero-img{
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+}
+
+
+/* ACCOUNT LOGGING */
+
+.logging .asteriskField {
+    display:none;
+}
+
+.logging .form-text {
+    color: var(--text-color-muted);
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.logging .form-check-input{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.logging .form-check-input:checked{
+    background-color: var(--highlight-pink);
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    body {
+        font-size: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2,
+    .brand {
+        font-size: 1.5rem;
+    }
 }
