@@ -3,6 +3,7 @@
 
 {% url 'home' as home_url %}
 {% url 'browse-tasks' as browse_tasks_url %}
+{% url 'your-tasks' as your_tasks_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -63,7 +64,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link hover-highlight {% if request.path == home_url %}active bold" 
-                                aria-current="page{% endif %}" href="{{ home_url }}">Tasker</a>
+                                aria-current="page{% endif %}" href="{{ your_tasks_url }}">Tasker</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link hover-highlight {% if request.path == login_url %}active bold" 

@@ -6,12 +6,20 @@ from .models import Task, Subtask
 
 class IndexView(generic.TemplateView):
     template_name = 'tasker/index.html'
-    
+
 
 class BrowseTasksView(LoginRequiredMixin, generic.ListView):
     model = Task
     template_name = 'tasker/browse-tasks.html'
     context_object_name = 'task_list' 
+    queryset = Task.objects.all()
+    paginate_by = 6
+
+
+class YourTasksView(LoginRequiredMixin, generic.ListView):
+    model = Task
+    template_name = 'tasker/your-tasks.html'
+    context_object_name = 'your_task_list' 
     queryset = Task.objects.all()
     paginate_by = 6
 
