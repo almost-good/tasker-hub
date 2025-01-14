@@ -39,6 +39,16 @@ class TaskForm(forms.ModelForm):
             'task_image',
             'is_completed'
         ]
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        name = cleaned_data.get('name')
+        author = cleaned_data.get('author')
+
+        if Task.objects.filter(name=name, author=author).exists():
+            raise ValidationError("Task name taken, try another.")
+        
+        return cleaned_data
 
 
 class CustomSignupForm(SignupForm):

@@ -45,6 +45,13 @@ class AddTaskView(LoginRequiredMixin, generic.CreateView):
     
     def form_valid(self, form):
         form.instance.author = self.request.user
+        
+        name = form.cleaned_data['name']
+        if Task.objects.filter(name=name, author=self.request.user).exists():
+            form.add_error('name', 'A task with this name already exists. Try another.')
+            context = self.get_context_data(form=form)
+            return render(self.request, self.template_name, context)
+
         task = form.save()
         
         subtask_formset = SubtaskFormSet(self.request.POST, instance=task)
