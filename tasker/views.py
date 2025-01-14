@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from .models import Task, Subtask, User
 from .forms import TaskForm, SubtaskFormSet
 
@@ -61,6 +62,42 @@ class AddTaskView(LoginRequiredMixin, generic.CreateView):
         return redirect('task-detail', username=self.request.user.get_username(), slug=task.slug)
 
 
+class EditTaskView(LoginRequiredMixin, generic.UpdateView):
+    model = Task
+    form_class = TaskForm
+    template_name = 'tasker/edit-task.html'
+    context_object_name = 'edit_task'
+    
+    def get_object(self, queryset=None):
+        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
+        return task
+    
+    def get_success_url(self):
+        return reverse('task-detail', kwargs={
+        'username': self.object.author.username, # type: ignore
+        'slug': self.object.slug, # type: ignore
+        })
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        name = form.cleaned_data['name']
+        if Task.objects.filter(name=name, author=self.request.user).exists():
+            form.add_error('name', 'A task with this name already exists. Try another.')
+            context = self.get_context_data(form=form)
+            return render(self.request, self.template_name, context)
+        return super().form_valid(form)
+    
+    def get_initial(self):
+        initial = super().get_initial()
+
+        if self.object: # type: ignore
+            initial['name'] = self.object.name # type: ignore
+            if self.object.task_image: # type: ignore
+                initial['task_image'] = self.object.task_image  # type: ignore # This gives the Cloudinary URL
+            else:
+                initial['task_image'] = ''
+
+        return initial
 
 @login_required
 def task_detail_view(request, username, slug):

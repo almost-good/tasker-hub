@@ -14,7 +14,15 @@
 <div class="container px-3 pt-5">
     <div class="row">
         <div class="col-12">
-            <h1 class="my-3 mb-2 text-center highlight-text-pink">{{ task.name }}</h1>
+            <h1 class="my-3 mb-2 text-center highlight-text-pink">
+                {{ task.name }}
+                {% if user.username == task.author.username %}
+                <a class="btn btn-primary btn-sm py-1 px-4 button bold" 
+                    href="{% url 'edit-task' pk=task.pk %}">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+                {% endif %}
+            </h1>
         </div>
     </div>
     <br>
