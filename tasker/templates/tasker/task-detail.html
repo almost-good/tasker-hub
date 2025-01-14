@@ -89,6 +89,9 @@
         </div>
     </div>
     {% endfor %}
+    <a class="btn btn-primary btn-sm py-1 px-4 button bold add-task-btn" href="{% url 'add-subtask' pk=task.pk%}">
+        <i class="fa-solid fa-plus"></i>
+    </a>
 </div>
 <!-- SUBTASK END -->
 

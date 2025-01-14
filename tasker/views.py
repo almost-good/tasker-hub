@@ -62,6 +62,22 @@ class AddTaskView(LoginRequiredMixin, generic.CreateView):
         return redirect('task-detail', username=self.request.user.get_username(), slug=task.slug)
 
 
+class AddSubtaskView(LoginRequiredMixin, generic.CreateView):
+    model = Subtask
+    fields = ['title', 'note', 'is_completed']
+    template_name = 'tasker/add-subtask.html'
+    context_object_name = 'add_subtask' 
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        task = Task.objects.get(pk=self.kwargs['pk'])
+
+        form.instance.task = task
+
+        form.save()
+        return redirect('task-detail', username=self.request.user.get_username(), slug=task.slug)
+
+
 class EditTaskView(LoginRequiredMixin, generic.UpdateView):
     model = Task
     form_class = TaskForm
