@@ -6,13 +6,26 @@ from allauth.account.forms import SignupForm
 from .models import Task, Subtask
 
 
+
 SubtaskFormSet = inlineformset_factory(
-    Task, Subtask, fields=[
+    Task, 
+    Subtask, 
+    fields=[
         'title', 
         'note', 
         'is_completed'
         ], extra=1
 )
+
+
+class SubtaskForm(forms.ModelForm):
+    class Meta:
+        model = Subtask
+        fields = [
+            'title', 
+            'note', 
+            'is_completed'
+            ]
 
 
 class TaskForm(forms.ModelForm):

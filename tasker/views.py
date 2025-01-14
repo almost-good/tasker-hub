@@ -49,9 +49,10 @@ class AddTaskView(LoginRequiredMixin, generic.CreateView):
         
         subtask_formset = SubtaskFormSet(self.request.POST, instance=task)
         if subtask_formset.is_valid():
-            subtask_formset.save()
+            subtask_formset.save() 
 
         return redirect('task-detail', username=self.request.user.get_username(), slug=task.slug)
+
 
 
 @login_required

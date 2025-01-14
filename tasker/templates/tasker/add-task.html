@@ -24,7 +24,7 @@
             <div class="col-11 col-md-8 mt-3">
                 <form method="post" class="signup mb-5" enctype="multipart/form-data">
                     {{ form | crispy }}
-                    <h3 class="mt-3 text-center mb-2 highlight-text">Subtasks</h3>
+                    <h3 class="mt-3 text-center mb-2 highlight-text">Subtask</h3>
                     {{ subtask_formset.management_form }}
                     <div class="subtask-forms">
                         {% for subtask_form in subtask_formset %}
@@ -33,10 +33,9 @@
                             </div>
                         {% endfor %}
                     </div>
-                    
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary btn-lg py-1 px-4 button bold">Submit</button>
-                    <a class="btn btn-primary btn-lg py-1 px-4 button bold" href="#">Cancel</a>
+                    <a class="btn btn-primary btn-lg py-1 px-4 button bold" href="{{ request.META.HTTP_REFERER|default:'/' }}">Cancel</a>
                 </form>
             </div>
             {% endif %}
@@ -47,4 +46,8 @@
 
 
 <!-- add-task.html ends here -->
-{%endblock%}
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

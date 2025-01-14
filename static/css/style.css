@@ -360,6 +360,17 @@ a {
 }
 
 
+/* ADD NEW TASK */
+
+input[id$="-DELETE"] {
+    display: none;
+}
+
+label[for$="-DELETE"] {
+    display: none;
+}
+
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 1000px) {
