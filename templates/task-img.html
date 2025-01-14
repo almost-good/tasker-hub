@@ -1,0 +1,21 @@
+{% load static %}
+
+
+<!-- TASK IMG STARTS HERE-->
+<div class="position-relative">
+    {% if "placeholder" in task.task_image.url %}
+    <img src="{% static 'images/default_task_img.jpg' %}"
+        class="card-img" alt="placeholder image">
+    {% else %}
+    <img src=" {{ task.task_image.url }}" alt="tasker image" class="card-img">
+    {% endif %}
+    <!-- Card checkmark -->
+    <div class="position-absolute card-checkmark text-white">
+        {% if task.is_completed %}
+        <span>
+            <i class="fa-solid fa-check-double pr-2 checkmark"></i>
+        </span>
+        {% endif %}
+    </div>
+</div>
+<!-- TASK IMG ENDS HERE-->

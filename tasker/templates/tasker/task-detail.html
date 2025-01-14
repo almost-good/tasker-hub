@@ -6,29 +6,81 @@
 
 <!-- index.html starts here -->
 
-<div>
-    {% if 'placeholder' in task.task_image.url %}
-    <img src="{% static 'images/default_task_img.jpg' %}" class="scale" alt="placeholder image" width="500" height="300">
-    {% else %}
-    <img src="{{ task.task_image.url }}" class="scale" alt="image for '{{ task.name }}' task" width="500" height="300">
-    {% endif %}
+
+<!-- INTRO START -->
+<div class="container px-3 pt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="my-3 mb-2 text-center highlight-text-pink">{{ task.name }}</h1>
+        </div>
+    </div>
+    <br>
 </div>
+<!-- INTRO END -->
 
 
-<h1>{{ task.name }}</h1>
-<p>{{ task.is_completed }}</p>
-<p>{{ task.author }}</p>
-<p>{{ task.date_updated }}</p>
+<!-- TASK INFO START -->
+<div class="container px-3 pb-2">
+    <div class="card-text pt-2 text-center lead w-100 d-flex flex-wrap justify-content-evenly">
+        <div class="div">
+            <span>
+                <i class="fa-solid fa-user px-2 card-icon"></i>
+            </span>
+            <span>{{ task.author.username }}</span>
+        </div>
+        <div class="div">
+            <span>
+                <i class="fa-solid fa-list-check px-2 card-icon"></i>
+            </span>
+            <span>{{ task.subtasks.all|length }}</span>
+        </div>
+        <div class="div">
+            <span>
+                <i class="fa-solid fa-calendar-days px-2 card-icon"></i>
+            </span>
+            <span>{{ task.date_updated }}</span>
+        </div>
+    </div>
+</div>
+<!-- TASK INFO END -->
 
-<ul>
+
+<!-- IMG START -->
+<div class="container-fluid task-img-container">
+    {% include "task-img.html" %}
+</div>
+<!-- IMG END -->
+
+
+<!-- SUBTASK START -->
+<div class="container px-3 pt-5">
     {% for subtask in subtasks %}
-        <li>{{ subtask.title }}</li>
-        <li>{{ subtask.note | safe }}</li>
-        <li>{{ subtask.is_completed }}</li>
+    <div class="row individual-subtask mb-3 w-100 d-flex flex-wrap-reverse">
+        <div class="col-md-10">
+            <div class="subtask-main p-3">
+                <h3 class="pb-3 highlight-text bold">{{ subtask.title }}</h3>
+                <div class="pb-3 subtask-note lead italic">
+                    {{ subtask.note | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 p-3 text-center">
+            {% if subtask.is_completed %}
+            <span><i class="fa-solid fa-check subtask-completed-icon"></i></span>
+            {% endif %}
+        </div>
+    </div>
     {% endfor %}
-</ul>
+</div>
+<!-- SUBTASK END -->
 
-<p>{{ task.likes }}</p>
+
+<!-- NAVIGATION END -->
+<nav class="p-5 text-center" aria-label="Page navigation">
+    <a class="btn btn-primary btn-lg py-1 px-4 button bold" 
+        href="{{ request.META.HTTP_REFERER|default:'/' }}">BACK</a>
+</nav>
+<!-- NAVIGATION END -->
 
 
 <!-- index.html ends here -->

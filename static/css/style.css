@@ -26,9 +26,11 @@
 
 html {
     height: 100%;
+    width: 100%;
 }
 
 body {
+    overflow-wrap: break-word;
     background-color: var(--general-bg-color);
     font-family: var(--font-text);
     font-size: 1.2rem;
@@ -314,6 +316,47 @@ a {
     font-family: var(--font-highlight);
     font-size: 1rem;
     color: var(--text-color-muted);
+}
+
+
+/* INDIVIDUAL TASK */
+
+.task-img-container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+}
+
+.individual-subtask {
+    margin: auto;
+}
+
+.subtask-main {
+    border: 2px solid var(--border-color);
+    border-radius: 2px;
+    box-shadow: 0px 0px 30px var(--nav-bg-color);
+}
+
+.individual-subtask:nth-child(even) .subtask-main {
+    background-color: var(--nav-bg-color);
+}
+
+.individual-subtask:nth-child(odd) .subtask-main {
+    background-color: var(--card-bg-color);
+}
+
+.subtask-note {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+
+.subtask-completed-icon {
+    font-size: 2rem;
+    color: var(--checkmark-green);
+    text-shadow: 0px 0px 5px var(--text-color-muted);;
 }
 
 

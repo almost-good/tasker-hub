@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Task, Subtask, User
@@ -57,4 +57,6 @@ def task_detail_view(request, username, slug):
             'subtasks': subtasks
         }
     )
-    
+
+def go_back_view(request):
+    return redirect(request.META.get('HTTP_REFERER', '/'))
