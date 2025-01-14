@@ -25,7 +25,6 @@ Tasker Hub transforms ideas into action, fostering collaboration and innovation.
       - [Wireframes](#wireframes)
   * [Data Model](#data-model)
   * [Testing](#testing)
-  * [Features](#features)
   * [Deployment](#deployment)
   * [Technologies Used](#technologies-used)
     + [Languages](#languages)
@@ -41,6 +40,7 @@ Tasker Hub transforms ideas into action, fostering collaboration and innovation.
 
 Site user is an individual who values productivity, creativity, and collaboration, such as but not limited to task planners, project managers, and idea enthusiasts. 
 
+[Live website](https://tasker-hub-fb8ebff24f35.herokuapp.com/)
 
 ### User Stories
 
@@ -256,6 +256,12 @@ The initial database was designed during the early stages of project planning. H
 
 #### HTML
 
+[HTML W3C Validator](https://validator.w3.org/)
+Each individual page was checked.
+
+One error found.
+![HTML Validation](docs/img/validate-html-1.png)
+
 #### CSS
 
 [W3C CSS Validator ](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftasker-hub-fb8ebff24f35.herokuapp.com%2Fbrowse-tasks&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#warnings)
@@ -274,9 +280,33 @@ Minor indentation and comment irregularities.
   - Bug: The incorrect Procfile configuration prevented the webpage from being served, despite successful deployment.
   - Fix: Used the command "heroku logs --tail --app tasker-hub" to inspect the Heroku log files, which helped identify and resolve the misconfiguration in the Procfile.
 
+- Like functionality
+  - Doesn't work as intended.
 
-## Features
+## Lighthouse
 
+- Home
+![Home](docs/img/l-home.png)
+- Browse
+![Browse](docs/img/l-browse.png)
+- Your Tasks
+![Your Tasks](docs/img/l-your-tasks.png)
+- Logout
+![Logout](docs/img/l-logout.png)
+- Task
+![Tasks](docs/img/l-task.png)
+- Edit Task
+![Edit Task](docs/img/l-edit-task.png)
+- Add Subtask
+![Add Subtask](docs/img/l-add-subtask.png)
+- Edit Subtask
+![Edit Subtask](docs/img/l-edit-subtask.png)
+- Add Subtask
+![Add Subtask](docs/img/l-add-subtask.png)
+- Signup
+![Signup](docs/img/l-signup.png)
+- Login
+![Login](docs/img/l-login.png)
 
 ## Deployment
 
