@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block title %}{{ task.author.username }} - {{ task.name }}{% endblock %}
@@ -80,11 +81,17 @@
             <span><i class="fa-solid fa-check subtask-completed-icon"></i></span>
             {% endif %}
             {% if user.username == task.author.username %}
-            
             <a class="btn btn-primary btn-sm py-1 px-4 button bold" 
                 href="{% url 'edit-subtask' pk=subtask.pk %}">
                 <i class="fa-solid fa-pen-to-square"></i>
             </a>
+            <!-- Deletion -->
+            <form method="post" action="{% url 'delete-subtask' pk=subtask.pk %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-sm py-1 px-4 button bold">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </form>
             {% endif %}
         </div>
     </div>
@@ -104,6 +111,11 @@
 <!-- NAVIGATION END -->
 
 
+
+
+<!-- DELETE MODAL END -->
+
 <!-- task-detail.html ends here -->
+
 
 {% endblock content %}

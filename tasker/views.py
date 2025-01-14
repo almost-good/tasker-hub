@@ -127,7 +127,16 @@ class EditSubtaskView(LoginRequiredMixin, generic.UpdateView):
         'username': self.object.task.author.username, # type: ignore
         'slug': self.object.task.slug,  # type: ignore
         })
-    
+
+
+class DeleteSubtaskView(generic.DeleteView):
+    model = Subtask
+    success_url = '/' 
+
+    def get_success_url(self):
+        task = self.object.task 
+        return reverse('task-detail', kwargs={'username': task.author.username, 'slug': task.slug})
+
 
 @login_required
 def task_detail_view(request, username, slug):
