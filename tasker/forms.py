@@ -34,7 +34,7 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        exclude = ['author'] 
+        
         fields = [
             'name',
             'task_image',

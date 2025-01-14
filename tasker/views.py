@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Task, Subtask, User
 from .forms import TaskForm, SubtaskFormSet
 
@@ -74,8 +74,8 @@ class EditTaskView(LoginRequiredMixin, generic.UpdateView):
     
     def get_success_url(self):
         return reverse('task-detail', kwargs={
-        'username': self.object.author.username, # type: ignore
-        'slug': self.object.slug, # type: ignore
+        'username': self.object.author.username,  # type: ignore # type: ignore
+        'slug': self.object.slug,  # type: ignore # type: ignore
         })
     
     def form_valid(self, form):
@@ -90,14 +90,28 @@ class EditTaskView(LoginRequiredMixin, generic.UpdateView):
     def get_initial(self):
         initial = super().get_initial()
 
-        if self.object: # type: ignore
-            initial['name'] = self.object.name # type: ignore
-            if self.object.task_image: # type: ignore
-                initial['task_image'] = self.object.task_image  # type: ignore # This gives the Cloudinary URL
+        if self.object: # type: ignore # type: ignore
+            initial['name'] = self.object.name # type: ignore # type: ignore
+            if self.object.task_image:  # type: ignore
+                initial['task_image'] = self.object.task_image   # type: ignore
             else:
                 initial['task_image'] = ''
 
         return initial
+
+
+class EditSubtaskView(LoginRequiredMixin, generic.UpdateView):
+    model = Subtask
+    fields = ['title', 'note', 'is_completed']
+    template_name = 'tasker/edit-subtask.html'
+    context_object_name = 'edit_subtask'
+    
+    def get_success_url(self):
+        return reverse('task-detail', kwargs={
+        'username': self.object.task.author.username, # type: ignore
+        'slug': self.object.task.slug,  # type: ignore
+        })
+    
 
 @login_required
 def task_detail_view(request, username, slug):

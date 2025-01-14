@@ -75,9 +75,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 p-3 text-center">
+        <div class="col-md-2 p-3 text-center d-flex flex-column align-items-center">
             {% if subtask.is_completed %}
             <span><i class="fa-solid fa-check subtask-completed-icon"></i></span>
+            {% endif %}
+            {% if user.username == task.author.username %}
+            
+            <a class="btn btn-primary btn-sm py-1 px-4 button bold" 
+                href="{% url 'edit-subtask' pk=subtask.pk %}">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
             {% endif %}
         </div>
     </div>
