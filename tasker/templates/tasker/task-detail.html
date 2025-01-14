@@ -22,6 +22,12 @@
                     href="{% url 'edit-task' pk=task.pk %}">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
+                <form method="post" action="{% url 'delete-task' pk=task.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-sm py-1 px-4 button bold">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                </form>
                 {% endif %}
             </h1>
         </div>

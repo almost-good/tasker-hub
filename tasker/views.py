@@ -137,6 +137,13 @@ class DeleteSubtaskView(generic.DeleteView):
         task = self.object.task 
         return reverse('task-detail', kwargs={'username': task.author.username, 'slug': task.slug})
 
+class DeleteTaskView(generic.DeleteView):
+    model = Task
+    success_url = '/' 
+
+    def get_success_url(self):
+        return '/your-tasks'
+
 
 @login_required
 def task_detail_view(request, username, slug):
