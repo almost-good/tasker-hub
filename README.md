@@ -97,12 +97,21 @@ To prioritize User Stories, the **MoSCoW Prioritization Technique** was applied:
 
 ### Design
 
+The design is straightforward, prioritizing clarity and ease of use. It ensures uniqueness and prevents conflicts, maintaining a smooth experience.
 
 #### Colour Scheme
 
+![Landing Page](docs/img/color-scheme.png)
+
+The overall color scheme embraces a soothing bluish tone, creating a calm and cohesive backdrop, while vivid bursts of bright red and yellow punctuate the design, injecting moments of vibrancy and lively contrast that draw the eye and energize the space.
+
 #### Imagery
 
+Images are primarily user-provided, with the exception of a warm, welcoming image of a notebook that gently encourages users to track their notes, and a thoughtfully included placeholder image to ensure users aren’t obligated to upload their own visuals.
+
 #### Fonts
+
+The website features a clean and modern typography palette, combining Open Sans for readability and versatility with the bold and structured elegance of Montserrat, creating a visually appealing and user-friendly design.
 
 #### Wireframes
 
@@ -157,7 +166,7 @@ Entity Relationship Diagram (ERD) is created using [Database Diagram Tool](https
 
 <details>
 
- <summary>Code used to create a model</summary>
+ <summary>Code used to create original model.</summary>
 
 ```
 User
@@ -188,7 +197,47 @@ is_completed Boolean
 ```
 </details><br>
 
-![Entity Relationship Diagram ](docs/img/erd.png)
+<details>
+
+ <summary>Original ERD.</summary>
+
+![ERD](docs/img/erd.png)
+</details><br>
+
+<details>
+
+ <summary>Code used to create updated model.</summary>
+
+```
+User
+-
+user_id Int PK
+username Char(20)
+email Char(50)
+password Char(50)
+
+Task
+-
+task_id Int PK
+author Int FK > User.user_id
+name Char(100)
+is_completed Boolean
+task_image Cloudinary
+date_updated DateTime
+likes Int
+slug Slug(200)
+
+Subtask
+-
+subtask_id Int PK
+task Int FK > Task.task_id
+title Char(200)
+note Text
+is_completed Boolean
+```
+</details><br>
+
+![Entity Relationship Diagram ](docs/img/erd-updated.png)
 
 The database design for this project consists of the following models:
 
@@ -199,9 +248,25 @@ Represents the individual task. Single Task is constructed from one or multiple 
 - **Subtask** <br>
 Represents the individual subtask and contains all information needed to log a single subtask into a Task through "task" Foreign Key.
 
+The initial database was designed during the early stages of project planning. However, it proved somewhat restrictive and was later updated to better accommodate and enhance the user experience.
 
 ## Testing
 
+### Validation
+
+#### HTML
+
+#### CSS
+
+[W3C CSS Validator ](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftasker-hub-fb8ebff24f35.herokuapp.com%2Fbrowse-tasks&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#warnings)
+
+![CSS VALIDATION](docs/img/validate-css.png)
+Warnings were related to the use of CSS variables for colors and fonts.
+
+#### Python
+
+[PEP8CI](https://pep8ci.herokuapp.com/#)
+Minor indentation and comment irregularities.
 
 ### Bugs
 
@@ -215,6 +280,7 @@ Represents the individual subtask and contains all information needed to log a s
 
 ## Deployment
 
+To get the Django framework installed and set up I followed the Code institutes Django Blog cheatsheet.
 
 ## Technologies Used
 
@@ -234,7 +300,10 @@ Represents the individual subtask and contains all information needed to log a s
 - [django-summernote 0.8.20.0](https://github.com/lqez/django-summernote) - WYSIWYG text editor integrated into Django admin and forms for creating rich-text content.
 - [whitenoise 5.3.0](https://whitenoise.readthedocs.io/en/latest/) - Utility that allows web apps to serve its own static files.
 - [cloudinary 1.36.0](https://cloudinary.com/) - API for managing and serving images.
+- [django-allauth 0.57.2](https://django-allauth.readthedocs.io/en/latest/) - User authentication.
+- [django-crispy-forms 2.3](https://django-crispy-forms.readthedocs.io/en/latest/) - Enhanced form rendering.
 - [Bootstrap5](https://getbootstrap.com/) - Frontend framework for responsive web development.
+- [cripsy-bootstrap5] - Bootstrap 5 styling.
 
 ### Tools
 
@@ -246,8 +315,13 @@ Represents the individual subtask and contains all information needed to log a s
 - [Cloudinary](https://cloudinary.com/) - Cloud based image managment.
 - [Pencil](https://pencil.evolus.vn/) - Wireframes.
 - [DateBase Diagram](https://databasediagram.com/) - Entity relationship diagram.
+- [Font Awesome](https://fontawesome.com/) - Icons.
+- [Google Fonts](https://fonts.google.com/) - Fonts.
 - [Pexels](https://www.pexels.com/) - Free stock photos.
-  - [Polina Zimmerman](https://www.pexels.com/photo/sticky-notes-on-board-3782235/) - Image used as default task image.
+- [Coolors](https://coolors.co/) - Color scheme.
+- [favicon.io](https://favicon.io/) - Favicon.
+- [ChatGPT](https://chatgpt.com/) - Debugging steps.
+- [Chrome DevTools](Chrome DevTools) - Debugging and development.
 
 ## Credits
 
