@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from .models import Task, Subtask, User
+from .forms import TaskForm, SubtaskFormSet
 
 
 class IndexView(generic.TemplateView):
@@ -26,6 +28,33 @@ class YourTasksView(LoginRequiredMixin, generic.ListView):
         return Task.objects.filter(author=self.request.user)
 
 
+class AddTaskView(LoginRequiredMixin, generic.CreateView):
+    form_class = TaskForm
+    template_name = 'tasker/add-task.html'
+    context_object_name = 'add_task' 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        if self.request.POST:
+            context['subtask_formset'] = SubtaskFormSet(self.request.POST)
+        else:
+            context['subtask_formset'] = SubtaskFormSet()
+        return context
+    
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        task = form.save()
+        
+        subtask_formset = SubtaskFormSet(self.request.POST, instance=task)
+        if subtask_formset.is_valid():
+            subtask_formset.save()
+
+        return redirect('task-detail', username=self.request.user.get_username(), slug=task.slug)
+
+
+@login_required
 def task_detail_view(request, username, slug):
     '''
     Display the individual model of :model:`tasker.Task` with the given slug.

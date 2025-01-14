@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+{% block title %}Your Tasks{% endblock %}
+
+
 {% block content %}
 
-<!-- index.html starts here -->
+<!-- your-tasks.html starts here -->
 
 
 <!-- INTRO START -->
@@ -15,7 +19,7 @@
     </div>
     <hr class="top-border">
     <div class="w-100 mt-5 mb-3">
-        <a class="btn btn-primary btn-lg py-1 px-4 button bold add-task-btn" href="#">CREATE NEW TASK</a>
+        <a class="btn btn-primary btn-lg py-1 px-4 button bold add-task-btn" href="{% url 'add-task' %}">CREATE NEW TASK</a>
     </div>
     <br>
 </div>
@@ -38,6 +42,6 @@
 <!-- PAGINATION END -->
 
 
-<!-- index.html ends here -->
+<!-- your-tasks.html ends here -->
 
 {% endblock content %}

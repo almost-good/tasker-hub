@@ -1,7 +1,31 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError 
+from django.forms import modelformset_factory, inlineformset_factory
 from allauth.account.forms import SignupForm
+from .models import Task, Subtask
+
+
+SubtaskFormSet = inlineformset_factory(
+    Task, Subtask, fields=[
+        'title', 
+        'note', 
+        'is_completed'
+        ], extra=1
+)
+
+
+class TaskForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(TaskForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = Task
+        fields = [
+            'name',
+            'task_image',
+            'is_completed'
+        ]
 
 
 class CustomSignupForm(SignupForm):

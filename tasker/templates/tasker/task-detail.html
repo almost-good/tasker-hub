@@ -2,9 +2,12 @@
 {% load static %}
 
 
+{% block title %}{{ task.author.username }} - {{ task.name }}{% endblock %}
+
+
 {% block content %}
 
-<!-- index.html starts here -->
+<!-- task-detail.html starts here -->
 
 
 <!-- INTRO START -->
@@ -83,6 +86,6 @@
 <!-- NAVIGATION END -->
 
 
-<!-- index.html ends here -->
+<!-- task-detail.html ends here -->
 
 {% endblock content %}
