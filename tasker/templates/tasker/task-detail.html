@@ -22,6 +22,7 @@
                     href="{% url 'edit-task' pk=task.pk %}">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </a>
+                <!-- Delete Task -->
                 <form method="post" action="{% url 'delete-task' pk=task.pk %}" style="display:inline;">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary btn-sm py-1 px-4 button bold">
@@ -116,10 +117,6 @@
 </nav>
 <!-- NAVIGATION END -->
 
-
-
-
-<!-- DELETE MODAL END -->
 
 <!-- task-detail.html ends here -->
 

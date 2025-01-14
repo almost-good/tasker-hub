@@ -4,40 +4,10 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 class Task(models.Model):
     '''
     Stores a single task entry related to :model:`auth.User`.
-    
-    **Fields:**
-    
-    ``name``
-        The name of the task.
-    ``slug``
-        A unique slug for the task.
-    ``author``
-        The author of the task.
-    ``task_image``
-        The image associated with the task.
-    ``is_completed``
-        A boolean indicating if the task is completed.
-    ``date_updated``
-        The date and time the task was last updated.
-    ``likes``
-        The number of likes the task has received.
-    ``subtasks``
-        QuerySet of :model:`tasker.Subtask` objects related to the task.
-    
-    **Constraints:**
-    
-    - Prevent multiple tasks with the same name from the same author.
-    - Prevent multiple tasks with the same slug from the same author.
-        
-    **Methods:**
-    
-    ``save``
-        Overriding the save method to automatically generate a slug for the task.
-    ``__str__``
-        String representation of the model.
     '''
     
     name = models.CharField(max_length=100)
@@ -66,7 +36,6 @@ class Task(models.Model):
         num = 1
         
         # Check if a task with the same slug already exists, excluding the current task.
-        # If it does, append a number to the slug to make it unique.
         while (
             Task.objects.filter(slug=unique_slug, author=self.author)
             .exclude(pk=self.pk)
@@ -91,32 +60,13 @@ class Task(models.Model):
         ordering = ['-date_updated']
     
     def __str__(self):
-        '''
-        String representation of Task model.
-        '''
-        
+
         return f"TASK: {self.name} | {self.author}"
 
 
 class Subtask(models.Model):
     '''
     Stores a single subtask entry related to :model:`tasker.Task`.
-    
-    **Fields:**
-    
-    ``title``
-        The title of the subtask.
-    ``note``
-        Additional notes for the subtask.
-    ``task``
-        The task the subtask is related to.
-    ``is_completed``
-        A boolean indicating if the subtask is completed.
-        
-    **Methods:**
-    
-    ``__str__``
-        String representation of the model.
     '''
     
     title = models.CharField(max_length=200)

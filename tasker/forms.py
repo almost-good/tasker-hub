@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError 
-from django.forms import modelformset_factory, inlineformset_factory
+from django.forms import inlineformset_factory
 from allauth.account.forms import SignupForm
 from .models import Task, Subtask
 
 
-
+# Import necessary modules.
 SubtaskFormSet = inlineformset_factory(
     Task, 
     Subtask, 
@@ -14,21 +14,29 @@ SubtaskFormSet = inlineformset_factory(
         'title', 
         'note', 
         'is_completed'
-        ], extra=1
+    ], extra=1
 )
 
 
 class SubtaskForm(forms.ModelForm):
+    '''
+    Custom form for creating and updating Subtask instances.
+    '''
+    
     class Meta:
         model = Subtask
         fields = [
             'title', 
             'note', 
             'is_completed'
-            ]
+        ]
 
 
 class TaskForm(forms.ModelForm):
+    '''
+    Custom form for creating and updating Task instances.
+    '''
+    
     def __init__(self, *args, **kwargs):
         super(TaskForm, self).__init__(*args, **kwargs)
 
@@ -42,6 +50,11 @@ class TaskForm(forms.ModelForm):
         ]
     
     def clean(self):
+        '''
+        Custom validation for the form.
+        Ensures that the task name is unique for the given author.
+        '''
+        
         cleaned_data = super().clean()
         name = cleaned_data.get('name')
         author = cleaned_data.get('author')
@@ -55,23 +68,6 @@ class TaskForm(forms.ModelForm):
 class CustomSignupForm(SignupForm):
     '''
     Custom signup form used to override the default signup form.
-    
-    **Fields:**
-    
-    ``username``
-        The username of the user.
-    ``email``
-        The email of the user.
-    ``password1``
-        The password of the user.
-    ``password2``
-        The password confirmation of the user.
-        
-    **Methods:**
-    ``__init__``
-        Overrides the default fields.
-    ``clean_email``
-        Checks if the email is unique in the database.
     '''
     
     # Overriding the default fields.
@@ -101,18 +97,8 @@ class CustomSignupForm(SignupForm):
     def clean_email(self):
         '''
         Checks if the email is unique in the database.
-        
-        **Returns:**
-        
-        ``email``
-            The email of the user.
-            
-        **Raises:**
-        
-        ``ValidationError``
-            If the email is already taken.
         '''
-        
+    
         email = self.cleaned_data.get('email')
 
         # Automatically checks if the email is unique in the database.
